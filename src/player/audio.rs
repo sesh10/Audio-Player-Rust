@@ -74,7 +74,7 @@ pub fn play_audio(file_path: &str) -> Result<()> {
 }
 
 
-/// Commands the UI can send to the audio thread.
+// Commands the UI can send to the audio thread.
 pub enum PlayerCommand {
     // Load and start playing the given file.
     Play(PathBuf),
@@ -160,8 +160,8 @@ pub fn start_player_thread() -> Sender<PlayerCommand> {
     tx
 }
 
-/// Try to estimate duration (ms) from codec params if possible.
-/// Returns None if not available. (UI will handle None gracefully.)
+// Try to estimate duration (ms) from codec params if possible.
+// Returns None if not available. (UI will handle None gracefully.)
 pub fn estimate_duration_ms(path: &PathBuf) -> Option<u64> {
     let file = File::open(path).ok()?;
     let mss = MediaSourceStream::new(Box::new(file), Default::default());
@@ -187,7 +187,7 @@ pub fn estimate_duration_ms(path: &PathBuf) -> Option<u64> {
     None
 }
 
-/// Decode the file with symphonia and enqueue raw PCM buffers into the sink.
+// Decode the file with symphonia and enqueue raw PCM buffers into the sink.
 fn decode_and_enqueue(path: &PathBuf, sink: &Sink) -> Result<()> {
     let file = File::open(path).with_context(|| format!("open file {:?}", path))?;
     let mss = MediaSourceStream::new(Box::new(file), Default::default());
