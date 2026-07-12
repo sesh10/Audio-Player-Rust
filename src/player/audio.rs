@@ -22,6 +22,7 @@ use symphonia::core::io::MediaSourceStream;
 use symphonia::core::meta::MetadataOptions;
 use symphonia::default::get_probe;
 
+// Play an audio file directly (blocking). This is a simple utility function for testing and debugging.
 pub fn play_audio(file_path: &str) -> Result<()> {
     // Create audio output
     let (_stream, handle) = OutputStream::try_default()?;
