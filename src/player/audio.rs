@@ -75,15 +75,15 @@ pub fn play_audio(file_path: &str) -> Result<()> {
 
 /// Commands the UI can send to the audio thread.
 pub enum PlayerCommand {
-    /// Load and start playing the given file.
+    // Load and start playing the given file.
     Play(PathBuf),
-    /// Pause playback.
+    // Pause playback.
     Pause,
-    /// Resume playback.
+    // Resume playback.
     Resume,
-    /// Stop playback and clear queue.
+    // Stop playback and clear queue.
     Stop,
-    /// Shutdown thread.
+    // Shutdown thread.
     Quit,
 }
 
