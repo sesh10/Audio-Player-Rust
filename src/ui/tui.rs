@@ -188,7 +188,7 @@ pub fn run_tui() -> Result<()> {
                 if is_looped { "  🔁" } else { "" }
             );
             let now_playing = Paragraph::new(now_playing_text)
-                .block(Block::default().borders(Borders::ALL).title("Now Playing"));
+                .block(Block::default().borders(Borders::ALL).title(" Now Playing "));
             f.render_widget(now_playing, chunks[0]);
 
             // Progress
@@ -201,7 +201,7 @@ pub fn run_tui() -> Result<()> {
                 None => format!("{} / --:--", fmt_ms(elapsed_ms)),
             };
             let gauge = Gauge::default()
-                .block(Block::default().borders(Borders::ALL).title("Progress"))
+                .block(Block::default().borders(Borders::ALL).title(" Progress "))
                 .gauge_style(Style::default().fg(Color::Green))
                 .ratio(ratio)
                 .label(time_text);
@@ -226,7 +226,7 @@ pub fn run_tui() -> Result<()> {
 
             let list = List::new(items)
                 .block(Block::default().borders(Borders::ALL).title(
-                    "Playlist  (↑/↓ select, Enter play, Space pause/resume, l Loop, n/p next/prev, s stop, q quit)",
+                    " Playlist  (↑/↓ select, Enter play, Space pause/resume, l Loop, n/p next/prev, s stop, q quit) ",
                 ));
             f.render_widget(list, chunks[2]);
         })?;
